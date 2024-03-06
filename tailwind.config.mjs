@@ -13,7 +13,7 @@ export default {
 				'light-primary': '#fff9e6',
 				'light-secondary': '#fff2cc',
 				'light-tertiary': '#ffecb3',
-				'dark-primary': '#29272d'
+				'dark-primary': '#000000'
 			}
 		},
 	},
