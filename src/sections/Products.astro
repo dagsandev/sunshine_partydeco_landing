@@ -1,46 +1,114 @@
-
-<section class="bg-light-secondary text-center p-5" id="products">
-
+<section class="bg-light-secondary text-center p-20" id="products">
+  <div class="text-center p-20" id="products">
     <div class="inline-flex items-center justify-center w-full">
-        <hr class="hidden md:inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded">
-        <div class="absolute px-4 -translate-x-1/2 bg-light-secondary left-1/2">
-          <span class="hidden md:inline-block md:text-sm opacity-80">Nuestros Productos</span>
-        </div>
-    </div>    
-    <h2 class="text-center text-2xl md:text-4xl font-bold p-5 animate-fade-in-right">Galería</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div>
-            <img class="h-full max-w-full object-cover rounded-lg" src="gallery/product1.PNG" alt="imagen producto 1">
-        </div>
-        <div>
-            <img class="h-full max-w-full object-cover rounded-lg" src="gallery/product2.PNG" alt="imagen producto 2">
-        </div>
-        <div>
-            <img class="h-full max-w-full object-cover rounded-lg" src="gallery/product3.PNG" alt="imagen producto 3">
-        </div>
-        <div>
-            <img class="h-full max-w-full object-cover rounded-lg" src="gallery/product4.PNG" alt="imagen producto 4">
-        </div>
-        <div>
-            <img class="h-full max-w-full object-cover rounded-lg" src="gallery/product5.PNG" alt="imagen producto 5">
-        </div>
-        <div>
-            <img class="h-full max-w-full object-cover rounded-lg" src="gallery/product6.PNG" alt="imagen producto 6">
-        </div>
-        <div>
-            <img class="h-full max-w-full object-cover rounded-lg" src="gallery/product7.PNG" alt="imagen producto 7">
-        </div>
-        <div>
-            <img class="h-full max-w-full object-cover rounded-lg" src="gallery/product8.PNG" alt="imagen producto 8">
-        </div>
-        <div>
-            <img class="h-full max-w-full object-cover rounded-lg" src="gallery/product9.PNG" alt="imagen producto 9">
-        </div>
+      <hr
+        class="hidden md:inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded"
+      />
+      <div
+        class="absolute px-4 -translate-x-1/2 bg-light-primary left-1/2 dark:bg-gray-900"
+      >
+        <span
+          class="hidden md:inline-block md:text-sm opacity-80 animate-fade-in-up animate-delay-400"
+          >Nuestros Productos
+        </span>
+      </div>
     </div>
+  </div>
 
-    <div class="text-center my-4 md:my-10">
-        <a href="https://instagram.com/sunshine_partydeco" role="button" target="_blank" class="text-light-primary hover:bg-gray-800 focus:ring-2 focus:outline-none font-medium rounded-lg text:lg md:text-xl px-4 py-2 md:py-4 text-center bg-dark-primary focus:ring-grey-900 active:bg-gray-600">Ver en Instagram</a>
-    </div>   
+  <h2
+    class="text-center text-2xl md:text-4xl font-bold mt-6 mb-20 animate-fade-in-right text-balance"
+  >
+    Galería
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div>
+      <img
+        class="tag-img"
+        src="gallery/product1.PNG"
+        alt="imagen producto 1"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <img
+        class="tag-img"
+        src="gallery/product2.PNG"
+        alt="imagen producto 2"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <img
+        class="tag-img"
+        src="gallery/product3.PNG"
+        alt="imagen producto 3"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <img
+        class="tag-img"
+        src="gallery/product4.PNG"
+        alt="imagen producto 4"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <img
+        class="tag-img"
+        src="gallery/product5.PNG"
+        alt="imagen producto 5"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <img
+        class="tag-img"
+        src="gallery/product6.PNG"
+        alt="imagen producto 6"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <img
+        class="tag-img"
+        src="gallery/product7.PNG"
+        alt="imagen producto 7"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <img
+        class="tag-img"
+        src="gallery/product8.PNG"
+        alt="imagen producto 8"
+        loading="lazy"
+      />
+    </div>
+    <div>
+      <img
+        class="tag-img"
+        src="gallery/product9.PNG"
+        alt="imagen producto 9"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <div class="text-center my-4 md:mt-20">
+    <a
+      href="https://instagram.com/sunshine_partydeco"
+      role="button"
+      target="_blank"
+      class="text-light-primary hover:bg-gray-800 focus:ring-2 focus:outline-none font-medium rounded-lg text:lg md:text-xl px-4 py-2 md:py-4 text-center bg-dark-primary focus:ring-grey-900 active:bg-gray-600"
+      >Ver en Instagram</a
+    >
+  </div>
 </section>
 
+<style>
+  .tag-img {
+    @apply max-w-full h-full object-cover object-center rounded-lg;
+  }
+</style>

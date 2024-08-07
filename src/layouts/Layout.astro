@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,47 +8,78 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es" dir="ltr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Web del emprendimiento Sunshine Party Deco donde podrás visualizar productos para decorar eventos infantiles." />
-		<meta name="viewport" 
-		content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
-		<meta property="og:title" content="Web de Sunshine Party Deco" />
-		<meta property="og:description" content="Pagina web del emprendimiento Sunshine Party Deco"/>
-		<meta property="og:site_name content Web de Sunshine Party Deco" />
-		<meta property="og:locale" content="es_ES" />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://sunshine-partydeco.vercel.app" />
-		<meta name="al:android:app_name" content="Web de Sunshine Party Deco"/>
-		<meta name="al:ios:app_name" content="Web de Sunshine Party Deco"/>
-		
-		
-		<link rel="author" href="https://instagram.com/clarcode.tech"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Web del emprendimiento Sunshine Party Deco donde podrás visualizar productos para decorar eventos infantiles."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta property="og:title" content="Web de Sunshine Party Deco" />
+    <meta
+      property="og:description"
+      content="Pagina web del emprendimiento Sunshine Party Deco"
+    />
+    <meta property="og:site_name content Web de Sunshine Party Deco" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sunshine-partydeco.vercel.app" />
+    <meta name="al:android:app_name" content="Web de Sunshine Party Deco" />
+    <meta name="al:ios:app_name" content="Web de Sunshine Party Deco" />
 
-		<link rel="icon" type="image/svg+xml" href="/logo-sunshine.png" />
-		
-		<title>{title}</title>
-	</head>
-	<body>
-		<div class="">
-			<slot />
-		</div>
-		
-		<!--Flowbite -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link rel="author" href="https://dagsan.dev" />
 
-		<!--Ionic icons -->
-		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-		<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-	</body>
+    <link rel="icon" type="image/svg+xml" href="/logo-sunshine.png" />
 
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
 
+    <!--Flowbite -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
+    ></script>
+
+    <!--Ionic icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  </body>
 </html>
 <style is:global>
-	html{
-		font-family: system-ui, sans-serif;
-		background: #fff9e6;
-	}
-	
+  html {
+    font-family: system-ui, sans-serif;
+    /* background: #ffceff; */
+    background: rgb(243,246,197);
+    background: linear-gradient(0deg, rgba(243,246,197,1) 0%, rgba(255,255,234,1) 10%, rgba(255,255,255,1) 100%);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    text-wrap: balance;
+  }
 </style>
