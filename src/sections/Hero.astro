@@ -20,13 +20,10 @@
     </a>
 
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button
-        type="button"
-        class="text-light-primary hover:bg-gray-800 focus:ring-2 focus:outline-none font-medium rounded-lg text:lg md:text-xl px-4 py-2 md:py-3 text-center bg-dark-primary focus:ring-grey-900 active:bg-gray-600"
-        data-drawer-target="drawer-contact"
-        data-drawer-show="drawer-contact"
-        aria-controls="drawer-contact">Contactanos</button
-      >
+      <div class="btnContainer hidden sm:inline-block">
+        <a class="btn-nav" href="#contact">Cotizar</a>
+      </div>
+      
 
       <button
         data-collapse-toggle="navbar-cta"
@@ -58,7 +55,7 @@
       id="navbar-cta"
     >
       <ul
-        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-primary"
+        class="flex flex-wrap flex-row font-medium p-2 md:p-0 mt-4 border border-gray-400 rounded-lg md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-primary justify-center"
       >
         <li>
           <a
@@ -95,6 +92,13 @@
             >Contacto</a
           >
         </li>
+        <li>
+          <a
+            href="#faq"
+            class="block py-2 px-3 md:p-0 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-110 duration-300 text-secondary"
+            >FAQ</a
+          >
+        </li>
       </ul>
     </div>
   </nav>
@@ -107,14 +111,12 @@
         Decoración artesanal para tu evento
       </h1>
 
-      <h3 class="text-xl font-semibold">
-        Papelería Creativa para Eventos
-      </h3>      
+      <span class="inline-flex items-center rounded-md mt-2 bg-gray-50 px-2 py-1 text-base font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Papelería Creativa</span>      
 
     </div>
 
     <div class="cta-btn">
-      <button class="btn"> Conocenos </button>
+      <a class="btn" href="#about"> Conocenos </a>
     </div>
     
   </div>
@@ -163,7 +165,7 @@
     font-weight: bold;
   }
   .cta-btn:hover{
-    background-color: rgba(182, 180, 40, 0.692);
+    background-color: rgba(182, 180, 40, 0.815);
   }
   .cta-btn:active{
     background-color: rgba(139, 114, 5, 0.486);
@@ -177,6 +179,22 @@
     --navbar-height: 80px;
   }
 
-
+.btn-nav{
+ margin-top: 1rem;
+ background-color: rgb(251, 255, 0);
+ border: 1px solid rgba(0, 0, 0, 0.452);
+ border-radius: 0.5rem;
+ padding: 10px 40px;
+ text-align: center;
+ max-width: 200px;
+ cursor: pointer;
+ font-weight: bold;
+}
+.btn-nav:hover{
+ background-color: rgb(227, 231, 3);
+}
+.btn-nav:active{
+ background-color: rgb(184, 187, 2);
+}
 
 </style>
