@@ -1,14 +1,19 @@
-<section class="bg-light-secondary text-center p-20" id="products">
-  <div class="text-center p-20" id="products">
+---
+import CtaBtn from "../components/CtaBtn.astro";
+---
+
+<section class="text-center py-20 px-2 max-w-[1300px] mx-auto" id="products">
+
+  <div class="text-center" id="products">
     <div class="inline-flex items-center justify-center w-full">
       <hr
-        class="hidden md:inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded"
+        class="inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded"
       />
       <div
-        class="absolute px-4 -translate-x-1/2 bg-light-primary left-1/2 dark:bg-gray-900"
+        class="absolute px-4 -translate-x-1/2 bg-[#FFFFF3] left-1/2"
       >
         <span
-          class="hidden md:inline-block md:text-sm opacity-80 animate-fade-in-up animate-delay-400"
+          class="inline-block text-sm opacity-80"
           >Nuestros Productos
         </span>
       </div>
@@ -16,7 +21,7 @@
   </div>
 
   <h2
-    class="text-center text-2xl md:text-4xl font-bold mt-6 mb-20 animate-fade-in-right text-balance"
+    class="text-center text-2xl md:text-4xl font-bold mt-6 mb-20 text-balance"
   >
     Galería
   </h2>
@@ -96,14 +101,11 @@
     </div>
   </div>
 
-  <div class="text-center my-4 md:mt-20">
-    <a
-      href="https://instagram.com/sunshine_partydeco"
-      role="button"
-      target="_blank"
-      class="text-light-primary hover:bg-gray-800 focus:ring-2 focus:outline-none font-medium rounded-lg text:lg md:text-xl px-4 py-2 md:py-4 text-center bg-dark-primary focus:ring-grey-900 active:bg-gray-600"
-      >Ver en Instagram</a
-    >
+  <div class="flex justify-center mx-auto my-4 md:mt-20">
+    <CtaBtn
+      title="Visitar Instagram"
+      hrefA="https://instagram.com/sunshine_partydeco"
+    />
   </div>
 </section>
 
