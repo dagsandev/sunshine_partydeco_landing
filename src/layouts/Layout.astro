@@ -24,7 +24,7 @@ const { title } = Astro.props;
       property="og:description"
       content="Pagina web del emprendimiento Sunshine Party Deco"
     />
-    <meta property="og:site_name content Web de Sunshine Party Deco" />
+    <meta property="og:site_name" content="Web de Sunshine Party Deco" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sunshine-partydeco.vercel.app" />
@@ -36,6 +36,17 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/logo-sunshine.png" />
 
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-LWLZMMMXGZ"></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LWLZMMMXGZ');
+</script>
+
   </head>
   <body>
     <slot />
