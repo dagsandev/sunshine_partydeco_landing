@@ -1,53 +1,99 @@
-<div class="text-center p-5 bg-light-primary" id="services">
-    
-   
-    <div class="inline-flex items-center justify-center w-full">
-        <hr class="hidden md:inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded">
-        <div class="absolute px-4 -translate-x-1/2 bg-light-primary left-1/2 dark:bg-gray-900">
-          <span class="hidden md:inline-block md:text-sm opacity-80">Nuestro Servicio</span>
-        </div>
+---
+import Card from "../components/Card.astro";
+---
+
+<div class="text-center py-20 px-2 max-w-[1300] mx-auto" id="services">
+  <div class="inline-flex items-center justify-center w-full">
+    <hr
+      class="inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded"
+    />
+    <div
+      class="absolute px-4 -translate-x-1/2 bg-light-primary left-1/2 dark:bg-gray-900"
+    >
+      <span class="inline-block text-sm opacity-80 animate-fade-in-up animate-delay-400"
+        >Nuestro Servicio</span
+      >
     </div>
-    <h2 class="text-2xl md:text-4xl font-bold p-5 animate-fade-in-left">Papelería Creativa para Eventos</h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        
-        <div class="block p-6 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-105 duration-300 bg-light-secondary border border-gray-200 rounded-lg shadow hover:bg-light-tertiary">
-            <h5 class=" text-2xl font-bold text-dark-primary dark:text-white">Banderines</h5>
-        </div>                
+  </div>
+  <h2
+    class="text-2xl md:text-4xl font-bold mt-6 mb-20 animate-fade-in-up animate-delay-400 text-balance"
+  >
+    Papelería Creativa para Eventos
+  </h2>  
 
-        <div class="block p-6 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-105 duration-300 bg-light-secondary border border-gray-200 rounded-lg shadow hover:bg-light-tertiary">
+  
+  <div class="grid grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+    <Card
+      title="Banderines"
+      body=""
+      hrefA="https://sunshine-partydeco.vercel.app"
+      hrefImg="/gallery/product1.PNG"
+      alt="imagen producto"
+    />
 
-            <h5 class="mb-2 text-2xl font-bold text-dark-primary dark:text-white">Toppers</h5>
+    <Card
+      title="Toppers"
+      body=""
+      hrefA="https://sunshine-partydeco.vercel.app"
+      hrefImg="/gallery/product1.PNG"
+      alt="imagen producto"
+    />
 
-        </div> 
+    <Card
+      title="Cake Toppers"
+      body=""
+      hrefA="https://sunshine-partydeco.vercel.app"
+      hrefImg="/gallery/product1.PNG"
+      alt="imagen producto"
+    />
 
-        <div class="block p-6 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-105 duration-300 bg-light-secondary border border-gray-200 rounded-lg shadow hover:bg-light-tertiary">
-            <h5 class="mb-2 text-2xl font-bold text-dark-primary dark:text-white">Cake Toppers</h5>
-        </div>
-        
-        <div class="block p-6 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-105 duration-300 bg-light-secondary border border-gray-200 rounded-lg shadow hover:bg-light-tertiary">
-            <h5 class="mb-2 text-2xl font-bold text-dark-primary dark:text-white">Letras 3D</h5>
-        </div>
+    <Card
+      title="Letras 3D"
+      body=""
+      hrefA="https://sunshine-partydeco.vercel.app"
+      hrefImg="/gallery/product1.PNG"
+      alt="imagen producto"
+    />
 
-        <div class="block p-6 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-105 duration-300 bg-light-secondary border border-gray-200 rounded-lg shadow hover:bg-light-tertiary">
-            <h5 class="mb-2 text-2xl font-bold text-dark-primary dark:text-white">Souvenirs</h5>
-        </div>   
-        
-        <div class="block p-6 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-105 duration-300 bg-light-secondary border border-gray-200 rounded-lg shadow hover:bg-light-tertiary">
-            <h5 class="mb-2 text-2xl font-bold text-dark-primary dark:text-white">Foto Imán</h5>
-        </div>
+    <Card
+      title="Souvenirs"
+      body=""
+      hrefA="https://sunshine-partydeco.vercel.app"
+      hrefImg="/gallery/product1.PNG"
+      alt="imagen producto"
+    />
 
-        <div class="block p-6 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-105 duration-300 bg-light-secondary border border-gray-200 rounded-lg shadow hover:bg-light-tertiary">
-            <h5 class="mb-2 text-2xl font-bold text-dark-primary dark:text-white">Milk Box</h5>
-        </div>
+    <Card
+      title="Foto Imán"
+      body=""
+      hrefA="https://sunshine-partydeco.vercel.app"
+      hrefImg="/gallery/product1.PNG"
+      alt="imagen producto"
+    />
 
-        <div class="block p-6 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-105 duration-300 bg-light-secondary border border-gray-200 rounded-lg shadow hover:bg-light-tertiary">
-            <h5 class="mb-2 text-2xl font-bold text-dark-primary dark:text-white">Tarjetería</h5>
-        </div>
+    <Card
+      title="Milk Box"
+      body=""
+      hrefA="https://sunshine-partydeco.vercel.app"
+      hrefImg="/gallery/product1.PNG"
+      alt="imagen producto"
+    />
 
-        <div class="block p-6 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-105 duration-300 bg-light-secondary border border-gray-200 rounded-lg shadow hover:bg-light-tertiary">
-            <h5 class="mb-2 text-2xl font-bold text-dark-primary dark:text-white">Etiquetas</h5>
-        </div>
-   
-    </div>
+    <Card
+      title="Tarjetería"
+      body=""
+      hrefA="https://sunshine-partydeco.vercel.app"
+      hrefImg="/gallery/product1.PNG"
+      alt="imagen producto"
+    />
+
+    <Card
+      title="Etiquetas"
+      body=""
+      hrefA="https://sunshine-partydeco.vercel.app"
+      hrefImg="/gallery/product1.PNG"
+      alt="imagen producto"
+    />
+
+  </div>
 </div>

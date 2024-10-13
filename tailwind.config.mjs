@@ -10,10 +10,13 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'light-primary': '#fff9e6',
-				'light-secondary': '#fff2cc',
-				'light-tertiary': '#ffecb3',
-				'dark-primary': '#000000'
+				// 'light-primary': '#fffc59',
+				// 'light-secondary': '#fff2cc',
+				// 'light-tertiary': '#ffecb3',
+				'dark-primary': '#000000',
+				'light-primary': '#ffff',
+				'light-secondary': '#fffff',
+				'light-tertiary': '#fffff' 
 			}
 		},
 	},
