@@ -20,8 +20,8 @@ const { title, body, hrefA, hrefImg, alt } = Astro.props;
     <p>{body}</p>
   </div>
 
-  <div class="m-10">
-    <a href={hrefA} role="button" class="btn" target="_blank">Ver Más</a>
+  <div class="mt-8 mb-2">
+    <a href={hrefA} role="button" class="btn">Ver Galería</a>
   </div>
 </div>
 
@@ -39,6 +39,17 @@ const { title, body, hrefA, hrefImg, alt } = Astro.props;
     overflow: hidden;
     text-align: center;
   }
+  
+  .image-container {
+    margin-bottom: 10px;
+    height: 310px;
+    
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+  }
   img:hover {
     animation: imgHover 0.5s ease-in-out forwards;
   }
@@ -49,18 +60,10 @@ const { title, body, hrefA, hrefImg, alt } = Astro.props;
     margin-bottom: 4px;
     font-size: larger;
   }
+
   h3,
   p {
     text-wrap: balance;
-  }
-
-  .image-container {
-    margin-bottom: 10px;
-    aspect-ratio: 16 / 9;
-  }
-  img {
-    width: 100%;
-    height: 220px;
   }
 
   .btn {

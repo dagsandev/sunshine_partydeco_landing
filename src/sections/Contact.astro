@@ -2,7 +2,7 @@
 
 ---
 
-<section class="text-center py-20 px-2 max-w-[1300] mx-auto" id="contact">
+<section class="text-center py-20 px-4 w-full mx-auto" id="contact">
   <div class="inline-flex items-center justify-center w-full">
     <hr class="inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded" />
     <div class="absolute px-4 -translate-x-1/2 bg-[#FFFFEC] left-1/2">
@@ -15,7 +15,7 @@
   </h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 justify-center items-center">
-    <div class="flex justify-center mx-auto w-10/12">
+    <div class="flex justify-center mx-auto w-8/12">
       <form
         class="text-left rounded-md p-2 w-full"
         action="https://formspree.io/f/xjvnornq"
@@ -89,7 +89,7 @@
       </form>
     </div>
 
-    <article class="grid justify-center max-w-xl p-5 mx-auto">
+    <article class="grid justify-center w-8/12 mt-12 md:mt-0 mx-auto">
       <ul>
         <li class="flex py-2 md:py-3 hover:underline">
           <div class="icon-container">
@@ -106,7 +106,7 @@
           >
         </li>
 
-        <li class="flex py-2 md:py-3 hover:cursor-pointer hover:underline">
+        <li class="flex py-2 md:py-3 hover:underline">
           <div class="icon-container">
             <img
               style="width: 1.8rem;"
@@ -185,9 +185,12 @@
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 0.5rem;
+    background-color: rgba(31, 41, 55, 0.11);
   }
   .icon-container:hover {
     background-color: rgba(31, 41, 55, 0.322);
-    cursor: pointer;
+  }
+  .icon-container:active {
+    background-color: rgba(31, 41, 55, 0.589);
   }
 </style>
