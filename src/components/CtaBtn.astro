@@ -1,34 +1,36 @@
 ---
 interface Props {
   title: string;
-  hrefA: string;  
+  hrefA: string;
 }
 
 const { title, hrefA } = Astro.props;
+const isExternal = hrefA.startsWith("http");
 ---
 
-<div class="cta-btn text:lg md:text-xl">
-    <a class="btn" href={hrefA} target="_blank" role="button"> {title} </a>
-</div>
-
-</div>
+<a
+  class="cta-btn text-lg md:text-xl"
+  href={hrefA}
+  {...isExternal && { target: "_blank", rel: "noopener noreferrer" }}
+>
+  {title}
+</a>
 
 <style>
-     .cta-btn{
+  .cta-btn {
+    display: inline-block;
     margin-top: 1rem;
     background-color: rgb(251, 255, 0);
     border: 1px solid rgba(0, 0, 0, 0.452);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     padding: 10px 40px;
     text-align: center;
-    max-width: 200px;
-    cursor: pointer;
     font-weight: bold;
   }
-  .cta-btn:hover{
+  .cta-btn:hover {
     background-color: rgb(227, 231, 3);
   }
-  .cta-btn:active{
+  .cta-btn:active {
     background-color: rgb(184, 187, 2);
   }
 </style>

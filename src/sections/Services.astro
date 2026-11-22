@@ -1,15 +1,32 @@
 ---
 import Card from "../components/Card.astro";
+import numeros3d from "../assets/services/numeros3d-1.webp";
+import topper from "../assets/services/topper1.webp";
+import cakeTopper from "../assets/services/CakeTopper3.webp";
+import centroDeMesa from "../assets/services/centrodemesa1.webp";
+import letras3d from "../assets/services/Letras3D-3.webp";
+import souvenirIman from "../assets/services/souvenir-iman.webp";
+import stickers from "../assets/services/stickers1.webp";
+import tarjeteria from "../assets/services/tarjeteria1.webp";
+import candyBar from "../assets/services/candybar1.webp";
+
+const services = [
+  { title: "Números 3D", img: numeros3d },
+  { title: "Toppers", img: topper },
+  { title: "Cake Toppers", img: cakeTopper },
+  { title: "Centro de Mesa", img: centroDeMesa },
+  { title: "Letras 3D", img: letras3d },
+  { title: "Souvenir Imán", img: souvenirIman },
+  { title: "Stickers", img: stickers },
+  { title: "Tarjetería", img: tarjeteria },
+  { title: "Candy Bar", img: candyBar },
+];
 ---
 
-<div class="text-center py-20 px-4 w-full mx-auto" id="services">
+<section class="text-center py-20 px-4 w-full mx-auto" id="services">
   <div class="inline-flex items-center justify-center w-full">
-    <hr
-      class="inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded"
-    />
-    <div
-      class="absolute px-4 -translate-x-1/2 bg-light-primary left-1/2 dark:bg-gray-900"
-    >
+    <hr class="inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded" />
+    <div class="absolute px-4 -translate-x-1/2 bg-white left-1/2">
       <span class="inline-block text-sm opacity-80 animate-fade-in-up animate-delay-400"
         >Nuestro Servicio</span
       >
@@ -19,81 +36,20 @@ import Card from "../components/Card.astro";
     class="text-2xl md:text-4xl font-bold mt-6 mb-20 animate-fade-in-up animate-delay-400 text-balance"
   >
     Papelería Creativa para Eventos
-  </h2>  
+  </h2>
 
-  
-  <div class="grid grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-4 gap-4 w-full mx-auto">
-    <Card
-      title="Numeros 3D"
-      body=""
-      hrefA="#products"
-      hrefImg="/services-img/numeros3d-1.webp"
-      alt="imagen producto"
-    />
-
-    <Card
-      title="Toppers"
-      body=""
-      hrefA="#products"
-      hrefImg="/services-img/topper1.webp"
-      alt="imagen producto"
-    />
-
-    <Card
-      title="Cake Toppers"
-      body=""
-      hrefA="#products"
-      hrefImg="/services-img/CakeTopper3.webp"
-      alt="imagen producto"
-    />
-
-    <Card
-      title="Centro de Mesa"
-      body=""
-      hrefA="#products"
-      hrefImg="/services-img/centrodemesa1.webp"
-      alt="imagen producto"
-    />
-
-    <Card
-      title="Letras 3D"
-      body=""
-      hrefA="#products"
-      hrefImg="/services-img/Letras3D-3.webp"
-      alt="imagen producto"
-    />
-
-    <Card
-      title="Souvenir Imán"
-      body=""
-      hrefA="#products"
-      hrefImg="/services-img/souvenir-iman.webp"
-      alt="imagen producto"
-    />
-
-    <Card
-      title="Stickers"
-      body=""
-      hrefA="#products"
-      hrefImg="/services-img/stickers1.webp"
-      alt="imagen producto"
-    />
-
-    <Card
-      title="Tarjetería"
-      body=""
-      hrefA="#products"
-      hrefImg="/services-img/tarjeteria1.webp"
-      alt="imagen producto"
-    />
-
-    <Card
-      title="Candy Bar"
-      body=""
-      hrefA="#products"
-      hrefImg="/services-img/candybar1.webp"
-      alt="imagen producto"
-    />
-
+  <div
+    class="grid grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-6xl mx-auto"
+  >
+    {
+      services.map(({ title, img }) => (
+        <Card
+          title={title}
+          hrefA="#products"
+          img={img}
+          alt={`${title} personalizados de Sunshine Party Deco`}
+        />
+      ))
+    }
   </div>
-</div>
+</section>

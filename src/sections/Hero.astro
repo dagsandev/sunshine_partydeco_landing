@@ -1,200 +1,161 @@
-<div class="headerContainer w-full aspect-video">
+---
+import { getImage } from "astro:assets";
+import heroBg from "../assets/hero/main-img-background.webp";
 
+const bgDesktop = await getImage({ src: heroBg, width: 1920, format: "webp", quality: 75 });
+const bgMobile = await getImage({ src: heroBg, width: 900, format: "webp", quality: 70 });
+
+const links = [
+  { href: "#", label: "Inicio" },
+  { href: "#about", label: "Nosotras" },
+  { href: "#services", label: "Servicios" },
+  { href: "#products", label: "Productos" },
+  { href: "#contact", label: "Contacto" },
+  { href: "#faq", label: "FAQ" },
+];
+---
+
+<header
+  class="headerContainer"
+  style={`--bg-desktop: url(${bgDesktop.src}); --bg-mobile: url(${bgMobile.src});`}
+>
   <!--Navbar-->
-  <nav
-    class="navbar w-full flex flex-wrap items-center justify-between mx-auto p-4"
-  >
-    <a
-      href="#"
-      class="flex flex-wrap items-center space-x-3 rtl:space-x-reverse rounded-full"
-    >
-      <img
-        src="/logo-sunshine.png"
-        class="h-14"
-        alt="Sunshine Party Deco Logo"
-      />
+  <nav class="navbar w-full flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="#" class="flex items-center gap-3 rounded-full">
+      <img src="/logo-sunshine.png" width="56" height="56" class="h-14 w-auto" alt="" />
       <span
-        class="flex flex-col items-center self-center text-xl md:text-1xl uppercase font-extrabold whitespace-pre-line text-dark-primary animate-pulse-fade-in animate-delay-250"
+        class="flex flex-col items-center text-xl uppercase font-extrabold text-dark-primary animate-pulse-fade-in animate-delay-250"
         >Sunshine <span class="text-sm md:text-base">PartyDeco</span></span
       >
     </a>
 
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <div class="btnContainer hidden sm:inline-block">
-        <a class="btn-nav" href="#contact">Cotizar</a>
-      </div>
-      
+    <div class="flex md:order-2 gap-3">
+      <a class="btn-nav hidden sm:inline-block" href="#contact">Cotizar</a>
 
       <button
-        data-collapse-toggle="navbar-cta"
+        id="menu-toggle"
         type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-primary rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-gray-900"
         aria-controls="navbar-cta"
         aria-expanded="false"
       >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"></path>
+        <span class="sr-only">Abrir menú</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path>
         </svg>
       </button>
     </div>
 
-    <div
-      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-      id="navbar-cta"
-    >
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
       <ul
-        class="flex flex-wrap flex-row font-medium p-2 md:p-0 mt-4 border border-gray-400 rounded-lg md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-primary justify-center"
+        class="flex flex-wrap flex-row font-medium p-2 md:p-0 mt-4 border border-gray-400 bg-white/80 md:bg-transparent rounded-lg md:space-x-8 md:mt-0 md:border-0 justify-center"
       >
-        <li class="li-menu-nav">
-          <a
-            href="#"
-            class="block py-2 px-3 md:p-0 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-110 duration-300 text-secondary"
-            aria-current="page">Inicio</a
-          >
-        </li>
-        <li>
-          <a
-            href="#about"
-            class="block py-2 px-3 md:p-0 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-110 duration-300 text-secondary"
-            >Nosotras</a
-          >
-        </li>
-        <li>
-          <a
-            href="#services"
-            class="block py-2 px-3 md:p-0 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-110 duration-300 text-secondary"
-            >Servicios</a
-          >
-        </li>
-        <li>
-          <a
-            href="#products"
-            class="block py-2 px-3 md:p-0 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-110 duration-300 text-secondary"
-            >Productos</a
-          >
-        </li>
-        <li>
-          <a
-            href="#contact"
-            class="block py-2 px-3 md:p-0 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-110 duration-300 text-secondary"
-            >Contacto</a
-          >
-        </li>
-        <li>
-          <a
-            href="#faq"
-            class="block py-2 px-3 md:p-0 transition ease-in-out delay-10 hover:-translate-y-1 hover:scale-110 duration-300 text-secondary"
-            >FAQ</a
-          >
-        </li>
+        {
+          links.map(({ href, label }) => (
+            <li>
+              <a
+                href={href}
+                class="block py-2 px-3 md:p-0 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </nav>
   <!--End-->
 
-  <div class="text-content-container md:pl-20">
+  <div class="text-content-container px-4 md:pl-20">
     <div class="text-content">
-
-      <h1 class="text-4xl font-bold">
-        Decoración artesanal para tu evento
-      </h1>
-
-      <span class="inline-flex items-center rounded-md mt-2 bg-gray-50 px-2 py-1 text-base font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Papelería Creativa</span>      
-
+      <h1 class="text-4xl font-bold">Decoración artesanal para tu evento</h1>
+      <span
+        class="inline-flex items-center rounded-md mt-2 bg-gray-50 px-2 py-1 text-base font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10"
+        >Papelería Creativa</span
+      >
     </div>
 
-    <div class="cta-btn">
-      <a class="btn" href="#about"> Conocenos </a>
-    </div>
-    
+    <a class="cta-btn" href="#about">Conocenos</a>
   </div>
-</div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("navbar-cta");
+
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle("hidden", !open);
+    toggle?.setAttribute("aria-expanded", String(open));
+  };
+
+  toggle?.addEventListener("click", () => setOpen(menu?.classList.contains("hidden") ?? false));
+  menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+</script>
 
 <style>
+  :root {
+    --navbar-height: 80px;
+  }
+
   .headerContainer {
+    position: relative;
     width: 100%;
-    height: 100vh;
-    max-width: 100%;  
-    background: url('/hero/main-img-background.webp') no-repeat;
-    background-size: cover;  
-    
+    min-height: 100svh;
+    background: var(--bg-mobile) no-repeat center / cover;
+  }
+  @media (min-width: 900px) {
+    .headerContainer {
+      background-image: var(--bg-desktop);
+    }
   }
   .headerContainer::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(to top, rgb(255, 255, 255), transparent);
-  
-  pointer-events: none; 
-}
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgb(255, 255, 255), transparent);
+    pointer-events: none;
+  }
 
-    .text-content-container {
+  .navbar {
+    min-height: var(--navbar-height);
+    position: relative;
+    z-index: 10;
+  }
+
+  .text-content-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    height: calc(100vh - var(--navbar-height));
-  } 
-  
-  .cta-btn{
-    margin-top: 1rem;
+    min-height: calc(100svh - var(--navbar-height));
+  }
+
+  .cta-btn,
+  .btn-nav {
     background-color: rgb(251, 255, 0);
     border: 1px solid rgba(0, 0, 0, 0.452);
-    border-radius: 60px;
-    margin-top: 2rem;
     padding: 10px 40px;
     text-align: center;
-    max-width: 200px;
-    cursor: pointer;
     font-weight: bold;
   }
-  .cta-btn:hover{
-    background-color: rgba(182, 180, 40, 0.815);
+  .cta-btn {
+    margin-top: 2rem;
+    border-radius: 60px;
   }
-  .cta-btn:active{
-    background-color: rgba(139, 114, 5, 0.486);
+  .btn-nav {
+    border-radius: 0.5rem;
   }
-
-  .navbar{
-    height: var(--navbar-height);
+  .cta-btn:hover,
+  .btn-nav:hover {
+    background-color: rgb(227, 231, 3);
   }
-
-  :root{
-    --navbar-height: 80px;
+  .cta-btn:active,
+  .btn-nav:active {
+    background-color: rgb(184, 187, 2);
   }
-
-.btn-nav{
- margin-top: 1rem;
- background-color: rgb(251, 255, 0);
- border: 1px solid rgba(0, 0, 0, 0.452);
- border-radius: 0.5rem;
- padding: 10px 40px;
- text-align: center;
- max-width: 200px;
- cursor: pointer;
- font-weight: bold;
-}
-.btn-nav:hover{
- background-color: rgb(227, 231, 3);
-}
-.btn-nav:active{
- background-color: rgb(184, 187, 2);
-}
-
 </style>

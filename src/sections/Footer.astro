@@ -1,48 +1,58 @@
+---
+const year = new Date().getFullYear();
+---
 
-  <footer class="rounded-tl-3xl rounded-tr-3xl w-full mx-auto px-4 py-4 mt-4"> <!-- md:py-8 -->
-    
-      <div class="flex flex-wrap justify-center space-x-2 md:justify-between">
+<footer class="rounded-tl-3xl rounded-tr-3xl w-full mx-auto px-4 py-4 mt-4">
+  <div class="flex flex-wrap justify-center gap-4 md:justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <img src="/logo-sunshine.png" width="32" height="32" class="h-8 w-auto" alt="" />
+      <span class="text-2xl text-yellow-200 font-extrabold whitespace-nowrap uppercase"
+        >Sunshine</span
+      >
+    </a>
+
+    <ul class="flex items-center gap-2 text-xl">
+      <li>
         <a
-          href="#"
-          class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
+          class="icon-container"
+          href="https://instagram.com/sunshine_partydeco"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
         >
-          <img src="/logo-sunshine.png" class="h-8" alt="Sunshine Logo" />
-          <span
-            class="self-center text-2xl text-yellow-200 font-extrabold whitespace-nowrap uppercase"
-            >Sunshine</span
-          >
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+          </svg>
         </a>
+      </li>
 
-        <ul
-          class="flex flex-wrap items-center text-xl sm:mb-0 space-x-1"
-        >
-          <li class="icon-container">
-            <a href="https://instagram.com/sunshine_partydeco" target="_blank"
-              ><ion-icon name="logo-instagram"></ion-icon></a
-            >
-          </li>
+      <li>
+        <a class="icon-container" href="mailto:sunshine.partydeco@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="m3 7 9 6 9-6"></path>
+          </svg>
+        </a>
+      </li>
 
-          <li class="icon-container">
-            <a href="mailto:sunshine.partydeco@gmail.com" target="_blank"
-              ><ion-icon name="mail-outline"></ion-icon></a
-            >
-          </li>
+      <li>
+        <a class="icon-container" href="#" aria-label="Volver arriba">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m6 15 6-6 6 6"></path>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
 
-          <li class="icon-container">
-            <a href="#" class="hover:underline"
-              ><ion-icon name="chevron-up"></ion-icon></a
-            >
-          </li>
-        </ul>
-      </div>
-      <hr class="my-6 border-black sm:mx-auto lg:my-8" />
-      <span class="block text-sm text-yellow-200 sm:text-center"
-        >
-        <>© 2025 <a href="#" class="hover:underline">Sunshine PartyDeco™.</a> Todos los derechos reservados</p>
-      </span>
-    
-  </footer>
+  <hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
 
+  <p class="text-sm text-yellow-200 sm:text-center">
+    © {year} Sunshine PartyDeco™. Todos los derechos reservados.
+  </p>
+</footer>
 
 <style>
   footer {
@@ -56,14 +66,11 @@
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 0.5rem;
-    margin-left: auto;
-    margin-right: auto;
     color: rgb(254 240 138);
     background-color: rgba(31, 41, 55, 0.322);
   }
   .icon-container:hover {
     background-color: rgba(31, 41, 55, 0.568);
-    cursor: pointer;
   }
   .icon-container:active {
     background-color: rgba(31, 41, 55, 0.842);
