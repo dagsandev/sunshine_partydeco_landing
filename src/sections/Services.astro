@@ -24,21 +24,25 @@ const services = [
 ];
 ---
 
-<section class="text-center py-20 px-4 w-full mx-auto" id="services">
-  <SectionTitle eyebrow="Nuestro Servicio" title="Papelería Creativa para Eventos" animate />
+<section class="bg-blush-soft px-5 py-24 md:py-32" id="services">
+  <div class="mx-auto max-w-6xl">
+    <SectionTitle
+      eyebrow="Nuestro servicio"
+      title="Papelería creativa para eventos"
+      subtitle="Todo personalizado con la temática y los colores de tu festejo."
+    />
 
-  <div
-    class="grid grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-6xl mx-auto"
-  >
-    {
-      services.map(({ title, img }) => (
-        <Card
-          title={title}
-          hrefA="#products"
-          img={img}
-          alt={`${title} personalizados de Sunshine Party Deco`}
-        />
-      ))
-    }
+    <div class="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
+      {
+        services.map(({ title, img }) => (
+          <Card
+            title={title}
+            hrefA="#products"
+            img={img}
+            alt={`${title} personalizados de Sunshine Party Deco`}
+          />
+        ))
+      }
+    </div>
   </div>
 </section>

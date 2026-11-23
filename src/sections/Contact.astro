@@ -2,124 +2,112 @@
 import Button from "../components/Button.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 
+const labelClass = "mb-2 block text-sm font-medium";
 const inputClass =
-  "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5";
+  "block w-full rounded-xl border border-ink/10 bg-blush-soft px-4 py-3 text-ink placeholder:text-ink/40 transition focus:border-rose focus:bg-white focus:ring-4 focus:ring-blush focus:outline-none";
 ---
 
-<section class="text-center py-20 px-4 w-full mx-auto" id="contact">
-  <SectionTitle eyebrow="Dónde encontrarnos" title="Contacto" />
+<section class="px-5 py-24 md:py-32" id="contact">
+  <div class="mx-auto max-w-6xl">
+    <SectionTitle
+      eyebrow="Escribinos"
+      title="Contanos sobre tu evento"
+      subtitle="Te respondemos con un presupuesto personalizado."
+    />
 
-  <div class="grid grid-cols-1 md:grid-cols-2 justify-center items-center">
-    <div class="flex justify-center mx-auto w-full max-w-md">
+    <div class="grid gap-10 md:grid-cols-5 md:gap-12">
       <form
-        class="text-left rounded-md p-4 w-full"
+        class="rounded-3xl bg-white p-6 shadow-xl ring-1 shadow-rose/10 ring-ink/5 md:col-span-3 md:p-10"
         action="https://formspree.io/f/mdegpkrp"
         method="POST"
       >
-        <div class="mb-6">
-          <label for="name" class="block mb-2 text-sm font-medium">Nombre</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            autocomplete="name"
-            required
-            class={inputClass}
-            placeholder="Alicia"
-          />
-        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="name" class={labelClass}>Nombre</label>
+            <input type="text" name="name" id="name" autocomplete="name" required class={inputClass} placeholder="Alicia" />
+          </div>
 
-        <div class="mb-6">
-          <label for="email" class="block mb-2 text-sm font-medium">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            autocomplete="email"
-            required
-            class={inputClass}
-            placeholder="tu@email.com"
-          />
-        </div>
+          <div>
+            <label for="email" class={labelClass}>Email</label>
+            <input type="email" name="email" id="email" autocomplete="email" required class={inputClass} placeholder="tu@email.com" />
+          </div>
 
-        <div class="mb-6">
-          <label for="subject" class="block mb-2 text-sm font-medium">Asunto</label>
-          <input
-            type="text"
-            name="subject"
-            id="subject"
-            required
-            class={inputClass}
-            placeholder="Presupuesto"
-          />
-        </div>
+          <div class="sm:col-span-2">
+            <label for="subject" class={labelClass}>Asunto</label>
+            <input type="text" name="subject" id="subject" required class={inputClass} placeholder="Presupuesto para un cumpleaños" />
+          </div>
 
-        <div class="mb-6">
-          <label for="message" class="block mb-2 text-sm font-medium">Mensaje</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            required
-            class={inputClass}
-            placeholder="Hola, quiero información sobre su servicio..."
-          ></textarea>
+          <div class="sm:col-span-2">
+            <label for="message" class={labelClass}>Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class={inputClass}
+              placeholder="Contanos la fecha, la temática y qué te gustaría incluir..."
+            ></textarea>
+          </div>
         </div>
 
         <!-- Formspree honeypot: hidden from humans, bots fill it in -->
         <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
 
-        <div class="flex justify-center">
-          <Button type="submit" class="mt-4" data-submit>
-            <span data-label>Enviar</span>
-            <span data-loading class="hidden">Enviando…</span>
-          </Button>
-        </div>
+        <Button type="submit" size="lg" class="mt-6 w-full sm:w-auto" data-submit>
+          <span data-label>Enviar mensaje</span>
+          <span data-loading class="hidden">Enviando…</span>
+        </Button>
 
-        <p
-          data-status
-          class="hidden mt-4 rounded-lg p-3 text-sm text-center"
-          role="status"
-          aria-live="polite"
-        >
-        </p>
+        <p data-status class="mt-4 hidden rounded-xl p-3 text-center text-sm" role="status" aria-live="polite"></p>
       </form>
+
+      <aside class="flex flex-col gap-4 md:col-span-2">
+        <a
+          href="https://instagram.com/sunshine_partydeco"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-center gap-4 rounded-2xl bg-blush-soft p-5 transition hover:bg-blush"
+        >
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-ink transition group-hover:bg-ink group-hover:text-white">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </span>
+          <span>
+            <span class="block text-sm text-ink/60">Instagram</span>
+            <span class="font-medium">@sunshine_partydeco</span>
+          </span>
+        </a>
+
+        <a
+          href="mailto:sunshine.partydeco@gmail.com"
+          class="group flex items-center gap-4 rounded-2xl bg-blush-soft p-5 transition hover:bg-blush"
+        >
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-ink transition group-hover:bg-ink group-hover:text-white">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3 7 9 6 9-6"></path>
+            </svg>
+          </span>
+          <span class="min-w-0">
+            <span class="block text-sm text-ink/60">Email</span>
+            <span class="block truncate font-medium">sunshine.partydeco@gmail.com</span>
+          </span>
+        </a>
+
+        <div class="rounded-2xl bg-ink p-6 text-white">
+          <p class="flex items-center gap-2 font-display text-xl">
+            <span class="h-2.5 w-2.5 rounded-full bg-sun" aria-hidden="true"></span>
+            Nos encontramos en CABA
+          </p>
+          <p class="mt-2 text-sm text-white/70">
+            Solo para retiro de mercadería con cita previa, ¡contactanos!
+          </p>
+        </div>
+      </aside>
     </div>
-
-    <article class="grid justify-center w-8/12 mt-12 md:mt-0 mx-auto">
-      <ul>
-        <li>
-          <a
-            href="https://instagram.com/sunshine_partydeco"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 py-2 md:py-3 text-sm hover:underline"
-          >
-            <span class="icon-container">
-              <img width="28" height="28" src="/icons/instagram.png" alt="" />
-            </span>
-            @sunshine_partydeco
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="mailto:sunshine.partydeco@gmail.com"
-            class="flex items-center gap-2 py-2 md:py-3 text-sm hover:underline"
-          >
-            <span class="icon-container">
-              <img width="28" height="28" src="/icons/mail.png" alt="" />
-            </span>
-            sunshine.partydeco@gmail.com
-          </a>
-        </li>
-      </ul>
-
-      <p>Nos encontramos en CABA.</p>
-      <p class="text-sm">
-        Solo para retiro de mercadería con cita previa, ¡contactanos!
-      </p>
-    </article>
   </div>
 </section>
 
@@ -168,25 +156,3 @@ const inputClass =
     }
   });
 </script>
-
-<style>
-  form {
-    background-color: rgba(126, 128, 108, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  }
-
-  .icon-container {
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 0.5rem;
-    background-color: rgba(31, 41, 55, 0.11);
-  }
-  a:hover .icon-container {
-    background-color: rgba(31, 41, 55, 0.322);
-  }
-</style>

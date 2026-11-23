@@ -1,94 +1,129 @@
 ---
-import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
-import heroBg from "../assets/hero/main-img-background.webp";
-
-const bgDesktop = await getImage({ src: heroBg, width: 1920, format: "webp", quality: 75 });
-const bgMobile = await getImage({ src: heroBg, width: 900, format: "webp", quality: 70 });
+import heroMain from "../assets/services/centrodemesa1.webp";
+import heroSecondary from "../assets/services/candybar1.webp";
 
 const links = [
-  { href: "#", label: "Inicio" },
   { href: "#about", label: "Nosotras" },
   { href: "#services", label: "Servicios" },
-  { href: "#products", label: "Productos" },
+  { href: "#products", label: "Galería" },
+  { href: "#faq", label: "Preguntas" },
   { href: "#contact", label: "Contacto" },
-  { href: "#faq", label: "FAQ" },
 ];
 ---
 
-<header
-  class="headerContainer"
-  style={`--bg-desktop: url(${bgDesktop.src}); --bg-mobile: url(${bgMobile.src});`}
->
-  <!--Navbar-->
+<header class="relative overflow-hidden bg-blush">
+  <!-- Navbar -->
   <nav
     id="site-nav"
-    class="navbar fixed top-0 inset-x-0 z-50 flex flex-wrap items-center justify-between px-4 py-3"
+    class="navbar fixed inset-x-0 top-0 z-50 transition duration-300"
+    aria-label="Principal"
   >
-    <a href="#" class="flex items-center gap-3 rounded-full">
-      <img src="/logo-sunshine.png" width="56" height="56" class="h-12 md:h-14 w-auto" alt="" />
-      <span
-        class="flex flex-col items-center text-xl uppercase font-extrabold text-dark-primary animate-pulse-fade-in animate-delay-250"
-        >Sunshine <span class="text-sm md:text-base">PartyDeco</span></span
-      >
-    </a>
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between px-5 py-3">
+      <a href="#" class="flex items-center gap-2.5" aria-label="Sunshine Party Deco, inicio">
+        <img src="/logo-sunshine.png" width="48" height="48" class="h-11 w-auto" alt="" />
+        <span class="font-display text-xl leading-none">
+          Sunshine
+          <span class="block font-sans text-[0.65rem] tracking-[0.3em] text-ink/60 uppercase">Party Deco</span>
+        </span>
+      </a>
 
-    <div class="flex md:order-2 gap-3">
-      <div class="hidden sm:block">
-        <Button href="#contact">Cotizar</Button>
+      <div class="flex items-center gap-2 md:order-2">
+        <Button href="#contact" size="sm">Cotizar</Button>
+
+        <button
+          id="menu-toggle"
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-ink/5 md:hidden"
+          aria-controls="navbar-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Abrir menú</span>
+          <svg class="h-5 w-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path>
+          </svg>
+        </button>
       </div>
 
-      <button
-        id="menu-toggle"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-black/10 focus:outline-hidden focus:ring-2 focus:ring-gray-900"
-        aria-controls="navbar-cta"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Abrir menú</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path>
-        </svg>
-      </button>
-    </div>
-
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-      <ul
-        class="flex flex-wrap flex-row font-medium p-2 md:p-0 mt-4 border border-gray-400 bg-white/80 md:bg-transparent rounded-lg md:space-x-8 md:mt-0 md:border-0 justify-center"
-      >
-        {
-          links.map(({ href, label }) => (
-            <li>
-              <a
-                href={href}
-                class="block py-2 px-3 md:p-0 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300"
-              >
-                {label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      <div id="navbar-menu" class="hidden w-full md:order-1 md:block md:w-auto">
+        <ul
+          class="mt-3 flex flex-col gap-1 rounded-2xl bg-white p-3 shadow-lg md:mt-0 md:flex-row md:gap-8 md:bg-transparent md:p-0 md:shadow-none"
+        >
+          {
+            links.map(({ href, label }) => (
+              <li>
+                <a
+                  href={href}
+                  class="block rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-blush md:p-0 md:hover:bg-transparent md:hover:text-rose-deep"
+                >
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </nav>
-  <!--End-->
 
-  <div class="text-content-container px-4 md:pl-20">
-    <div class="text-content">
-      <h1 class="text-4xl font-bold">Decoración artesanal para tu evento</h1>
+  <!-- Hero -->
+  <div
+    class="mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pt-28 pb-16 md:grid-cols-2 md:pt-24"
+  >
+    <div class="animate-fade-in-up">
       <span
-        class="inline-flex items-center rounded-md mt-2 bg-gray-50 px-2 py-1 text-base font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10"
-        >Papelería Creativa</span
+        class="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-1.5 text-sm font-medium"
       >
+        <span class="h-2.5 w-2.5 rounded-full bg-sun ring-2 ring-sun/40" aria-hidden="true"></span>
+        Papelería creativa · CABA
+      </span>
+
+      <h1 class="mt-6 font-display text-5xl leading-[1.05] text-balance md:text-7xl">
+        Decoración artesanal para tu evento
+      </h1>
+
+      <p class="mt-6 max-w-md text-lg text-ink/75">
+        Diseñamos cada detalle a mano para que el festejo sea único: toppers, centros de mesa,
+        candy bar y mucho más.
+      </p>
+
+      <div class="mt-9 flex flex-wrap gap-3">
+        <Button href="#about" size="lg">Conocenos</Button>
+        <Button href="#products" variant="outline" size="lg">Ver trabajos</Button>
+      </div>
     </div>
 
-    <Button href="#about" shape="pill" class="mt-8">Conocenos</Button>
+    <div class="relative mx-auto w-full max-w-md md:max-w-none">
+      <div
+        class="absolute -top-6 -right-4 h-24 w-24 rounded-full bg-sun/80 blur-sm md:h-32 md:w-32"
+        aria-hidden="true"
+      >
+      </div>
+      <Image
+        src={heroMain}
+        alt="Centro de mesa con mariposas y moños en tonos rosa y lila"
+        widths={[480, 720, 960]}
+        sizes="(min-width: 768px) 45vw, 90vw"
+        loading="eager"
+        fetchpriority="high"
+        class="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl shadow-rose/25 md:ml-auto md:w-[85%]"
+      />
+      <Image
+        src={heroSecondary}
+        alt="Candy bar de princesas con cajitas y tubos de golosinas"
+        widths={[240, 400]}
+        sizes="(min-width: 768px) 18vw, 40vw"
+        loading="eager"
+        class="absolute -bottom-8 -left-2 aspect-square w-2/5 rounded-3xl border-[6px] border-white object-cover shadow-xl md:-left-6"
+      />
+    </div>
   </div>
 </header>
 
 <script>
   const toggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("navbar-cta");
+  const menu = document.getElementById("navbar-menu");
 
   const setOpen = (open: boolean) => {
     menu?.classList.toggle("hidden", !open);
@@ -106,52 +141,10 @@ const links = [
 </script>
 
 <style>
-  :root {
-    --navbar-height: 80px;
-  }
-
-  .headerContainer {
-    position: relative;
-    width: 100%;
-    min-height: 100svh;
-    background: var(--bg-mobile) no-repeat center / cover;
-  }
-  @media (min-width: 900px) {
-    .headerContainer {
-      background-image: var(--bg-desktop);
-    }
-  }
-  .headerContainer::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: linear-gradient(to top, rgb(255, 255, 255), transparent);
-    pointer-events: none;
-  }
-
-  .navbar {
-    min-height: var(--navbar-height);
-    transition:
-      background-color 0.3s ease,
-      box-shadow 0.3s ease;
-  }
   .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  .text-content-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    min-height: 100svh;
-    padding-top: var(--navbar-height);
+    background-color: rgb(255 255 255 / 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgb(17 17 17 / 0.06);
   }
 </style>

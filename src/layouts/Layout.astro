@@ -1,4 +1,6 @@
 ---
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/dm-sans";
 import "../styles/global.css";
 import { getImage } from "astro:assets";
 import shareSource from "../assets/about/about-pic.webp";
@@ -59,6 +61,7 @@ const businessSchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6d5dc" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     {noindex && <meta name="robots" content="noindex" />}
@@ -107,32 +110,3 @@ const businessSchema = {
     <slot />
   </body>
 </html>
-
-<style is:global>
-  html {
-    font-family: system-ui, sans-serif;
-    background: linear-gradient(
-      0deg,
-      rgba(243, 246, 197, 1) 0%,
-      rgba(255, 255, 234, 1) 10%,
-      rgba(255, 255, 255, 1) 100%
-    );
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    /* Keep anchored sections clear of the fixed navbar */
-    scroll-padding-top: 80px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    text-wrap: balance;
-  }
-</style>

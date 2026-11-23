@@ -1,23 +1,19 @@
 ---
 type Props = {
-  /** Small label shown between the two lines above the heading. */
+  /** Small label shown above the heading. */
   eyebrow: string;
   title: string;
-  /** Fade the title in on load. */
-  animate?: boolean;
+  /** Optional supporting line under the heading. */
+  subtitle?: string;
 };
 
-const { eyebrow, title, animate = false } = Astro.props;
-const animation = animate && "animate-fade-in-up animate-delay-400";
+const { eyebrow, title, subtitle } = Astro.props;
 ---
 
-<div class="text-center">
-  <p class:list={["flex items-center justify-center gap-4 text-sm leading-6 opacity-80", animation]}>
-    <span class="h-[0.10rem] w-16 rounded-sm bg-gray-300" aria-hidden="true"></span>
+<div class="mx-auto mb-14 max-w-2xl text-center md:mb-16">
+  <p class="text-xs font-medium tracking-[0.2em] text-rose-deep uppercase">
     {eyebrow}
-    <span class="h-[0.10rem] w-16 rounded-sm bg-gray-300" aria-hidden="true"></span>
   </p>
-  <h2 class:list={["mt-6 mb-20 text-2xl font-bold text-balance md:text-4xl", animation]}>
-    {title}
-  </h2>
+  <h2 class="mt-3 font-display text-3xl text-balance md:text-5xl">{title}</h2>
+  {subtitle && <p class="mt-4 text-ink/70 md:text-lg">{subtitle}</p>}
 </div>

@@ -2,16 +2,53 @@
 @import "tailwind-animations";
 
 @theme {
-  --color-dark-primary: #000000;
-  --color-light-primary: #ffffff;
+  /* Typography: serif display for headings, clean sans for everything else */
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-sans: "DM Sans Variable", system-ui, sans-serif;
 
-  /* Brand yellow used by every call-to-action button */
-  --color-sunshine: rgb(251 255 0);
-  --color-sunshine-hover: rgb(227 231 3);
-  --color-sunshine-active: rgb(184 187 2);
+  /* Brand palette: blush pink, ink black, white and a small touch of sun */
+  --color-ink: #111111;
+  --color-ink-soft: #2b2b2b;
+  --color-blush: #f6d5dc;
+  --color-blush-soft: #fcf1f3;
+  --color-rose: #c97b8e;
+  /* Rose dark enough for small text on white/blush (WCAG AA) */
+  --color-rose-deep: #9c4a5f;
+  --color-sun: #ffe66d;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchored sections clear of the fixed navbar */
+    scroll-padding-top: 68px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    text-wrap: balance;
+  }
+
+  ::selection {
+    @apply bg-blush text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-rose;
+  }
+
   /* Tailwind v4 resets buttons to the default cursor; keep the v3 behaviour. */
   button:not(:disabled),
   [role="button"]:not(:disabled) {
