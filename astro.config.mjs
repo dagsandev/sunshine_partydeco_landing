@@ -1,17 +1,21 @@
-import { defineConfig } from 'astro/config';
-import partytown from '@astrojs/partytown'
-
-import tailwind from "@astrojs/tailwind";
+import { defineConfig } from "astro/config";
+import partytown from "@astrojs/partytown";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site:'https://sunshine-partydeco.vercel.app/',
+  site: "https://sunshine-partydeco.vercel.app/",
+  // Astro 7 defaults to "jsx" compression, which drops whitespace between
+  // inline elements (e.g. "Por eso <span>te invitamos"). Keep the old behaviour.
+  compressHTML: true,
   integrations: [
-    tailwind(),
     partytown({
       config: {
-        forward: ["dataLayer.push"]
-      }
-    })
-  ]
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

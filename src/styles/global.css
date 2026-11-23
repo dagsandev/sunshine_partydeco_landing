@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "tailwind-animations";
+
+@theme {
+  --color-dark-primary: #000000;
+  --color-light-primary: #ffffff;
+}
+
+@layer base {
+  /* Tailwind v4 resets buttons to the default cursor; keep the v3 behaviour. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
