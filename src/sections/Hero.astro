@@ -20,9 +20,12 @@ const links = [
   style={`--bg-desktop: url(${bgDesktop.src}); --bg-mobile: url(${bgMobile.src});`}
 >
   <!--Navbar-->
-  <nav class="navbar w-full flex flex-wrap items-center justify-between mx-auto p-4">
+  <nav
+    id="site-nav"
+    class="navbar fixed top-0 inset-x-0 z-50 flex flex-wrap items-center justify-between px-4 py-3"
+  >
     <a href="#" class="flex items-center gap-3 rounded-full">
-      <img src="/logo-sunshine.png" width="56" height="56" class="h-14 w-auto" alt="" />
+      <img src="/logo-sunshine.png" width="56" height="56" class="h-12 md:h-14 w-auto" alt="" />
       <span
         class="flex flex-col items-center text-xl uppercase font-extrabold text-dark-primary animate-pulse-fade-in animate-delay-250"
         >Sunshine <span class="text-sm md:text-base">PartyDeco</span></span
@@ -91,6 +94,12 @@ const links = [
 
   toggle?.addEventListener("click", () => setOpen(menu?.classList.contains("hidden") ?? false));
   menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+
+  // Give the fixed navbar a solid background once the page leaves the top.
+  const nav = document.getElementById("site-nav");
+  const updateNav = () => nav?.classList.toggle("scrolled", window.scrollY > 10);
+  window.addEventListener("scroll", updateNav, { passive: true });
+  updateNav();
 </script>
 
 <style>
@@ -122,8 +131,15 @@ const links = [
 
   .navbar {
     min-height: var(--navbar-height);
-    position: relative;
-    z-index: 10;
+    transition:
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   }
 
   .text-content-container {
@@ -132,7 +148,8 @@ const links = [
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    min-height: calc(100svh - var(--navbar-height));
+    min-height: 100svh;
+    padding-top: var(--navbar-height);
   }
 
   .cta-btn,

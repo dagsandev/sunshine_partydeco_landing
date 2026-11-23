@@ -64,6 +64,8 @@ const ogImage = new URL("/logo-sunshine.png", Astro.site);
     );
     overflow-x: hidden;
     scroll-behavior: smooth;
+    /* Keep anchored sections clear of the fixed navbar */
+    scroll-padding-top: 80px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
