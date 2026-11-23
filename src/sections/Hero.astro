@@ -1,5 +1,6 @@
 ---
 import { getImage } from "astro:assets";
+import Button from "../components/Button.astro";
 import heroBg from "../assets/hero/main-img-background.webp";
 
 const bgDesktop = await getImage({ src: heroBg, width: 1920, format: "webp", quality: 75 });
@@ -33,7 +34,9 @@ const links = [
     </a>
 
     <div class="flex md:order-2 gap-3">
-      <a class="btn-nav hidden sm:inline-block" href="#contact">Cotizar</a>
+      <div class="hidden sm:block">
+        <Button href="#contact">Cotizar</Button>
+      </div>
 
       <button
         id="menu-toggle"
@@ -79,7 +82,7 @@ const links = [
       >
     </div>
 
-    <a class="cta-btn" href="#about">Conocenos</a>
+    <Button href="#about" shape="pill" class="mt-8">Conocenos</Button>
   </div>
 </header>
 
@@ -150,29 +153,5 @@ const links = [
     width: 100%;
     min-height: 100svh;
     padding-top: var(--navbar-height);
-  }
-
-  .cta-btn,
-  .btn-nav {
-    background-color: rgb(251, 255, 0);
-    border: 1px solid rgba(0, 0, 0, 0.452);
-    padding: 10px 40px;
-    text-align: center;
-    font-weight: bold;
-  }
-  .cta-btn {
-    margin-top: 2rem;
-    border-radius: 60px;
-  }
-  .btn-nav {
-    border-radius: 0.5rem;
-  }
-  .cta-btn:hover,
-  .btn-nav:hover {
-    background-color: rgb(227, 231, 3);
-  }
-  .cta-btn:active,
-  .btn-nav:active {
-    background-color: rgb(184, 187, 2);
   }
 </style>

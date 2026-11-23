@@ -1,4 +1,6 @@
 ---
+import SectionTitle from "../components/SectionTitle.astro";
+
 const faqs = [
   {
     q: "¿Trabajan todo tipo de eventos?",
@@ -26,18 +28,7 @@ const faqs = [
 ---
 
 <section class="w-full max-w-4xl mx-auto py-20 px-4" id="faq">
-  <div class="text-center">
-    <div class="inline-flex items-center justify-center w-full">
-      <hr class="inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded-sm" />
-      <div class="absolute px-4 -translate-x-1/2 bg-[#FFFFEC] left-1/2">
-        <span class="inline-block text-sm opacity-80">Aclará tus dudas</span>
-      </div>
-    </div>
-  </div>
-
-  <h2 class="text-2xl md:text-4xl font-bold mt-6 mb-20 text-center text-balance">
-    Preguntas Frecuentes
-  </h2>
+  <SectionTitle eyebrow="Aclará tus dudas" title="Preguntas Frecuentes" />
 
   <div class="m-2 border border-gray-200 rounded-xl divide-y divide-gray-200 overflow-hidden">
     {

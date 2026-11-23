@@ -1,7 +1,8 @@
 ---
 import { Image, getImage } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import CtaBtn from "../components/CtaBtn.astro";
+import Button from "../components/Button.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 
 const sources = Object.values(
   import.meta.glob<{ default: ImageMetadata }>("../assets/gallery/*.png", {
@@ -20,16 +21,7 @@ const images = await Promise.all(
 ---
 
 <section class="text-center py-20 px-4 w-full mx-auto" id="products">
-  <div class="inline-flex items-center justify-center w-full">
-    <hr class="inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded-sm" />
-    <div class="absolute px-4 -translate-x-1/2 bg-[#FFFFF3] left-1/2">
-      <span class="inline-block text-sm opacity-80">Nuestros Productos</span>
-    </div>
-  </div>
-
-  <h2 class="text-center text-2xl md:text-4xl font-bold mt-6 mb-20 text-balance">
-    Galería
-  </h2>
+  <SectionTitle eyebrow="Nuestros Productos" title="Galería" />
 
   <ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
     {
@@ -57,7 +49,9 @@ const images = await Promise.all(
   </ul>
 
   <div class="flex justify-center mx-auto my-4 md:mt-20">
-    <CtaBtn title="Visitar Instagram" hrefA="https://instagram.com/sunshine_partydeco" />
+    <Button href="https://instagram.com/sunshine_partydeco" size="lg" class="mt-4">
+      Visitar Instagram
+    </Button>
   </div>
 
   <dialog id="lightbox" class="lightbox" aria-label="Galería ampliada">

@@ -4,6 +4,11 @@
 @theme {
   --color-dark-primary: #000000;
   --color-light-primary: #ffffff;
+
+  /* Brand yellow used by every call-to-action button */
+  --color-sunshine: rgb(251 255 0);
+  --color-sunshine-hover: rgb(227 231 3);
+  --color-sunshine-active: rgb(184 187 2);
 }
 
 @layer base {

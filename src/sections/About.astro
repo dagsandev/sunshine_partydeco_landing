@@ -1,28 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import CtaBtn from "../components/CtaBtn.astro";
+import Button from "../components/Button.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 import aboutPic from "../assets/about/about-pic.webp";
 ---
-<section class="text-center py-20 px-4 w-full mx-auto" id="about">
-  <div class="inline-flex items-center justify-center w-full">
-    <hr
-      class="inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded-sm"
-    />
-    <div
-      class="absolute px-4 -translate-x-1/2 bg-[#FFFFFC] left-1/2"
-    >
-      <span
-        class="inline-block text-sm opacity-80"
-        >Conocenos
-      </span>
-    </div>
-  </div>
 
-  <h2
-    class="text-center text-2xl md:text-4xl font-bold mt-6 mb-20 text-balance"
-  >
-    Sobre nosotras
-  </h2>
+<section class="text-center py-20 px-4 w-full mx-auto" id="about">
+  <SectionTitle eyebrow="Conocenos" title="Sobre nosotras" />
+
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <article class="flex items-center">
       <div>
@@ -40,12 +25,10 @@ import aboutPic from "../assets/about/about-pic.webp";
           vueltas por tu cabeza.
         </p>
 
-        <div class="flex justify-center m-12">         
-
-        <CtaBtn
-        title="Completar Formulario"
-        hrefA="https://tinyurl.com/sunshine-pd-form"
-        />
+        <div class="flex justify-center m-12">
+          <Button href="https://tinyurl.com/sunshine-pd-form" size="lg" class="mt-4">
+            Completar Formulario
+          </Button>
         </div>
       </div>
     </article>

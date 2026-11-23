@@ -1,19 +1,13 @@
 ---
+import Button from "../components/Button.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+
 const inputClass =
   "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-400 block w-full p-2.5";
 ---
 
 <section class="text-center py-20 px-4 w-full mx-auto" id="contact">
-  <div class="inline-flex items-center justify-center w-full">
-    <hr class="inline-block w-56 h-[0.10rem] bg-gray-300 border-0 rounded-sm" />
-    <div class="absolute px-4 -translate-x-1/2 bg-[#FFFFEC] left-1/2">
-      <span class="inline-block text-sm opacity-80">Donde Encontrarnos</span>
-    </div>
-  </div>
-
-  <h2 class="text-2xl md:text-4xl font-bold mt-6 mb-20 text-balance">
-    Contacto
-  </h2>
+  <SectionTitle eyebrow="Dónde encontrarnos" title="Contacto" />
 
   <div class="grid grid-cols-1 md:grid-cols-2 justify-center items-center">
     <div class="flex justify-center mx-auto w-full max-w-md">
@@ -76,10 +70,10 @@ const inputClass =
         <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
 
         <div class="flex justify-center">
-          <button class="formBtn" type="submit" data-submit>
+          <Button type="submit" class="mt-4" data-submit>
             <span data-label>Enviar</span>
             <span data-loading class="hidden">Enviando…</span>
-          </button>
+          </Button>
         </div>
 
         <p
@@ -180,25 +174,6 @@ const inputClass =
     background-color: rgba(126, 128, 108, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  }
-
-  .formBtn {
-    margin-top: 1rem;
-    background-color: rgb(251, 255, 0);
-    border: 1px solid rgba(0, 0, 0, 0.452);
-    border-radius: 0.5rem;
-    padding: 10px 40px;
-    font-weight: bold;
-  }
-  .formBtn:hover {
-    background-color: rgb(227, 231, 3);
-  }
-  .formBtn:active {
-    background-color: rgb(184, 187, 2);
-  }
-  .formBtn:disabled {
-    opacity: 0.6;
-    cursor: wait;
   }
 
   .icon-container {

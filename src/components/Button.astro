@@ -1,0 +1,44 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = {
+  /** Renders an <a> when set, otherwise a <button>. */
+  href?: string;
+  type?: "button" | "submit";
+  /** "pill" is fully rounded (hero CTA); "rounded" has soft corners. */
+  shape?: "rounded" | "pill";
+  size?: "md" | "lg";
+  class?: string;
+} & Omit<HTMLAttributes<"a"> & HTMLAttributes<"button">, "type" | "href" | "class">;
+
+const { href, type = "button", shape = "rounded", size = "md", class: className, ...rest } = Astro.props;
+
+const isExternal = href?.startsWith("http");
+
+const classes = [
+  "inline-block px-10 py-2.5 text-center font-bold",
+  "border border-black/45 bg-sunshine transition-colors",
+  "hover:bg-sunshine-hover active:bg-sunshine-active",
+  "disabled:opacity-60 disabled:cursor-wait",
+  shape === "pill" ? "rounded-full" : "rounded-lg",
+  size === "lg" && "text-lg md:text-xl",
+  className,
+];
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class:list={classes}
+      {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
+      {...rest}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class:list={classes} {...rest}>
+      <slot />
+    </button>
+  )
+}
