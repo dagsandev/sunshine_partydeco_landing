@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import partytown from "@astrojs/partytown";
+import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
@@ -9,6 +10,7 @@ export default defineConfig({
   // inline elements (e.g. "Por eso <span>te invitamos"). Keep the old behaviour.
   compressHTML: true,
   integrations: [
+    sitemap(),
     partytown({
       config: {
         forward: ["dataLayer.push"],

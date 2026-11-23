@@ -1,18 +1,57 @@
 ---
 import "../styles/global.css";
+import { getImage } from "astro:assets";
+import shareSource from "../assets/about/about-pic.webp";
 
 interface Props {
   title: string;
   description?: string;
+  /** Keep the page out of search results (e.g. the 404 page). */
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "Decoración artesanal y papelería creativa para eventos infantiles en CABA. Toppers, números y letras 3D, centros de mesa, candy bar y más.",
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL("/logo-sunshine.png", Astro.site);
+
+// 1200x630 JPEG: the size and format every social network and WhatsApp accept.
+const shareImage = await getImage({
+  src: shareSource,
+  width: 1200,
+  height: 630,
+  format: "jpg",
+  quality: 80,
+});
+const ogImage = new URL(shareImage.src, Astro.site);
+const ogImageAlt = "Chicos festejando un cumpleaños con globos y gorritos de fiesta";
+
+// Structured data so search engines understand who the business is.
+// Only the city is published on purpose: no street address or phone.
+const siteURL = Astro.site?.href ?? canonicalURL.href;
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${siteURL}#business`,
+  name: "Sunshine Party Deco",
+  description,
+  url: siteURL,
+  logo: new URL("/logo-sunshine.png", Astro.site).href,
+  image: ogImage.href,
+  email: "sunshine.partydeco@gmail.com",
+  sameAs: ["https://instagram.com/sunshine_partydeco"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ciudad Autónoma de Buenos Aires",
+    addressRegion: "CABA",
+    addressCountry: "AR",
+  },
+  areaServed: { "@type": "City", name: "Ciudad Autónoma de Buenos Aires" },
+  paymentAccepted: "Efectivo, Mercado Pago, Transferencia bancaria",
+};
 ---
 
 <!doctype html>
@@ -22,6 +61,8 @@ const ogImage = new URL("/logo-sunshine.png", Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -30,6 +71,18 @@ const ogImage = new URL("/logo-sunshine.png", Astro.site);
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
 
     <link rel="author" href="https://dagsan.dev" />
     <link rel="icon" type="image/png" href="/logo-sunshine.png" />
