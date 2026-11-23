@@ -13,68 +13,33 @@ interface Props {
 const { title, body, hrefA, img, alt } = Astro.props;
 ---
 
-<div class="card">
-  <div class="image-container">
-    <Image src={img} alt={alt} width={350} height={310} loading="lazy" />
+<a
+  href={hrefA}
+  class="group block w-full overflow-hidden rounded-2xl sm:rounded-3xl bg-white text-left ring-1 ring-ink/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-rose/15"
+>
+  <div class="aspect-[4/5] overflow-hidden">
+    <Image
+      src={img}
+      alt={alt}
+      width={480}
+      height={600}
+      loading="lazy"
+      class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+    />
   </div>
 
-  <div class="text-container">
-    <h3>{title}</h3>
-    {body && <p>{body}</p>}
+  <div class="flex items-center justify-between gap-3 p-3 sm:p-5">
+    <div>
+      <h3 class="font-display text-base leading-tight sm:text-xl">{title}</h3>
+      {body && <p class="mt-1 text-sm text-ink/70">{body}</p>}
+    </div>
+    <span
+      class="hidden h-10 w-10 shrink-0 items-center sm:flex justify-center rounded-full bg-blush transition group-hover:bg-ink group-hover:text-white"
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 6l6 6-6 6"></path>
+      </svg>
+    </span>
   </div>
-
-  <div class="mt-8 mb-2">
-    <a href={hrefA} class="btn">Ver Galería</a>
-  </div>
-</div>
-
-<style>
-  .card {
-    max-width: 350px;
-    min-width: 250px;
-    width: 100%;
-    height: 430px;
-    background-color: rgba(126, 128, 108, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    margin: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .image-container {
-    margin-bottom: 10px;
-    height: 310px;
-    overflow: hidden;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease-in-out;
-  }
-  img:hover {
-    transform: scale(1.05);
-  }
-
-  h3 {
-    color: #000000;
-    font-weight: 700;
-    margin-bottom: 4px;
-    font-size: larger;
-  }
-
-  .btn {
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    padding: 8px 10px;
-    background-color: rgb(255, 255, 255);
-  }
-  .btn:hover {
-    background-color: rgba(248, 250, 145, 0.877);
-  }
-  .btn:active {
-    background-color: rgba(153, 151, 56, 0.479);
-  }
-</style>
+</a>

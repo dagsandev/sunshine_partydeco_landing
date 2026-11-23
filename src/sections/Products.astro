@@ -20,10 +20,15 @@ const images = await Promise.all(
 );
 ---
 
-<section class="text-center py-20 px-4 w-full mx-auto" id="products">
-  <SectionTitle eyebrow="Nuestros Productos" title="Galería" />
+<section class="px-5 py-24 md:py-32" id="products">
+  <div class="mx-auto max-w-6xl">
+  <SectionTitle
+    eyebrow="Nuestros trabajos"
+    title="Galería"
+    subtitle="Algunos de los festejos que decoramos. Tocá una foto para verla en grande."
+  />
 
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <ul class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
     {
       images.map(({ src, alt, full }, i) => (
         <li>
@@ -48,10 +53,11 @@ const images = await Promise.all(
     }
   </ul>
 
-  <div class="flex justify-center mx-auto my-4 md:mt-20">
-    <Button href="https://instagram.com/sunshine_partydeco" size="lg" class="mt-4">
-      Visitar Instagram
+  <div class="mt-14 flex justify-center">
+    <Button href="https://instagram.com/sunshine_partydeco" variant="outline" size="lg">
+      Ver más en Instagram
     </Button>
+  </div>
   </div>
 
   <dialog id="lightbox" class="lightbox" aria-label="Galería ampliada">
@@ -113,9 +119,9 @@ const images = await Promise.all(
   .gallery-item {
     display: block;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
-    border-radius: 0.5rem;
+    border-radius: 1.25rem;
     cursor: zoom-in;
   }
   .tag-img {
@@ -123,12 +129,11 @@ const images = await Promise.all(
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 0.5rem;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
   }
   .gallery-item:hover .tag-img,
   .gallery-item:focus-visible .tag-img {
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 
   .lightbox {
@@ -147,7 +152,7 @@ const images = await Promise.all(
     justify-content: center;
   }
   .lightbox::backdrop {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgb(17 17 17 / 0.9);
   }
   .lightbox img {
     max-width: min(92vw, 1200px);
@@ -170,7 +175,7 @@ const images = await Promise.all(
     line-height: 1;
   }
   .lb-btn:hover {
-    background: rgb(251, 255, 0);
+    background: var(--color-blush);
   }
   .lb-close {
     top: 1rem;

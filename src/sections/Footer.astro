@@ -1,78 +1,84 @@
 ---
 const year = new Date().getFullYear();
+
+const links = [
+  { href: "#about", label: "Nosotras" },
+  { href: "#services", label: "Servicios" },
+  { href: "#products", label: "Galería" },
+  { href: "#faq", label: "Preguntas" },
+  { href: "#contact", label: "Contacto" },
+];
+
+const iconClass =
+  "flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-blush hover:text-ink";
 ---
 
-<footer class="rounded-tl-3xl rounded-tr-3xl w-full mx-auto px-4 py-4 mt-4">
-  <div class="flex flex-wrap justify-center gap-4 md:justify-between">
-    <a href="#" class="flex items-center gap-3">
-      <img src="/logo-sunshine.png" width="32" height="32" class="h-8 w-auto" alt="" />
-      <span class="text-2xl text-yellow-200 font-extrabold whitespace-nowrap uppercase"
-        >Sunshine</span
-      >
-    </a>
-
-    <ul class="flex items-center gap-2 text-xl">
-      <li>
-        <a
-          class="icon-container"
-          href="https://instagram.com/sunshine_partydeco"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-        >
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
-          </svg>
+<footer class="bg-ink px-5 pt-16 pb-8 text-white">
+  <div class="mx-auto max-w-6xl">
+    <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+      <div>
+        <a href="#" class="flex items-center gap-3">
+          <img src="/logo-sunshine.png" width="48" height="48" class="h-12 w-auto" alt="" />
+          <span class="font-display text-2xl leading-none">
+            Sunshine
+            <span class="block font-sans text-[0.65rem] tracking-[0.3em] text-white/60 uppercase">Party Deco</span>
+          </span>
         </a>
-      </li>
+        <p class="mt-4 max-w-xs text-sm text-white/60">
+          Decoración artesanal y papelería creativa para eventos en CABA.
+        </p>
+      </div>
 
-      <li>
-        <a class="icon-container" href="mailto:sunshine.partydeco@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-            <path d="m3 7 9 6 9-6"></path>
-          </svg>
-        </a>
-      </li>
+      <nav aria-label="Secciones">
+        <ul class="grid grid-cols-2 gap-x-10 gap-y-2 text-sm text-white/80">
+          {
+            links.map(({ href, label }) => (
+              <li>
+                <a href={href} class="transition hover:text-blush">
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
 
-      <li>
-        <a class="icon-container" href="#" aria-label="Volver arriba">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="m6 15 6-6 6 6"></path>
-          </svg>
-        </a>
-      </li>
-    </ul>
+      <ul class="flex gap-3">
+        <li>
+          <a
+            class={iconClass}
+            href="https://instagram.com/sunshine_partydeco"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class={iconClass} href="mailto:sunshine.partydeco@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3 7 9 6 9-6"></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class={iconClass} href="#" aria-label="Volver arriba">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 15 6-6 6 6"></path>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <p class="mt-12 border-t border-white/10 pt-6 text-xs text-white/50">
+      © {year} Sunshine PartyDeco™. Todos los derechos reservados.
+    </p>
   </div>
-
-  <hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
-
-  <p class="text-sm text-yellow-200 sm:text-center">
-    © {year} Sunshine PartyDeco™. Todos los derechos reservados.
-  </p>
 </footer>
-
-<style>
-  footer {
-    background-color: rgba(0, 0, 0, 0.918);
-  }
-
-  .icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 0.5rem;
-    color: rgb(254 240 138);
-    background-color: rgba(31, 41, 55, 0.322);
-  }
-  .icon-container:hover {
-    background-color: rgba(31, 41, 55, 0.568);
-  }
-  .icon-container:active {
-    background-color: rgba(31, 41, 55, 0.842);
-  }
-</style>

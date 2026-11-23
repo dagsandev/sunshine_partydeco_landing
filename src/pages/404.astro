@@ -1,9 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="No encontrado - Sunshine Party Deco" noindex>
-  <main class="flex items-center justify-center w-dvw h-dvh overflow-hidden">
-    <h1 class="flex items-center font-mono text-xl">404 Página no encontrada</h1>
+  <main class="flex min-h-dvh flex-col items-center justify-center gap-6 bg-blush px-5 text-center">
+    <p class="text-xs font-medium tracking-[0.2em] text-rose-deep uppercase">Error 404</p>
+    <h1 class="font-display text-4xl md:text-6xl">Esta página no existe</h1>
+    <Button href="/" size="lg">Volver al inicio</Button>
   </main>
 </Layout>

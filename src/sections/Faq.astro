@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: "¿Cuánto demoran en entregarme el pedido?",
-    a: 'Entre 5 y 15 días, pero siempre dependerá de la cantidad de mercadería solicitada y los tiempos de producción. Para una respuesta precisa, te invitamos a que nos <a href="#contact" class="text-blue-600 underline">contactes</a> para brindarte una atención personalizada.',
+    a: 'Entre 5 y 15 días, pero siempre dependerá de la cantidad de mercadería solicitada y los tiempos de producción. Para una respuesta precisa, te invitamos a que nos <a href="#contact" class="font-medium text-rose-deep underline underline-offset-2">contactes</a> para brindarte una atención personalizada.',
   },
   {
     q: "¿Cómo puedo abonar?",
@@ -27,35 +27,30 @@ const faqs = [
 ];
 ---
 
-<section class="w-full max-w-4xl mx-auto py-20 px-4" id="faq">
-  <SectionTitle eyebrow="Aclará tus dudas" title="Preguntas Frecuentes" />
+<section class="bg-blush-soft px-5 py-24 md:py-32" id="faq">
+  <div class="mx-auto max-w-3xl">
+    <SectionTitle eyebrow="Aclará tus dudas" title="Preguntas frecuentes" />
 
-  <div class="m-2 border border-gray-200 rounded-xl divide-y divide-gray-200 overflow-hidden">
-    {
-      faqs.map(({ q, a }, i) => (
-        <details class="group" open={i === 0}>
-          <summary class="flex items-center justify-between w-full p-5 font-medium text-black cursor-pointer list-none hover:bg-gray-100 gap-3">
-            <h3>{q}</h3>
-            <svg
-              class="w-3 h-3 shrink-0 transition-transform group-open:rotate-180"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 1 4 4 4-4"
-              />
-            </svg>
-          </summary>
-          <div class="px-5 pb-5 text-black" set:html={a} />
-        </details>
-      ))
-    }
+    <div class="space-y-3">
+      {
+        faqs.map(({ q, a }, i) => (
+          <details class="group rounded-2xl bg-white ring-1 ring-ink/5" open={i === 0}>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 md:p-6">
+              <h3 class="font-medium md:text-lg">{q}</h3>
+              <span
+                class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blush transition group-open:rotate-45 group-open:bg-ink group-open:text-white"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </span>
+            </summary>
+            <div class="px-5 pb-6 leading-relaxed text-ink/75 md:px-6" set:html={a} />
+          </details>
+        ))
+      }
+    </div>
   </div>
 </section>
 
